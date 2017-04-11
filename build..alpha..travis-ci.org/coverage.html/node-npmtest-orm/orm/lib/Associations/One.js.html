@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-orm/orm/lib/Associations/One.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-orm">npmtest-orm (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-orm/orm/lib/Associations/One.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">6.76% <small>(10 / 148)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">6.76% <small>(10 / 148)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-orm/orm/lib/Associations/</a> &#187; One.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var _          = require("lodash");
+var util       = require("../Utilities");
+var ORMError   = require("../Error");
+var Accessors  = { "get": "get", "set": "set", "has": "has", "del": "remove" };
+&nbsp;
+exports.prepare = <span class="fstat-no" title="function not covered" >function (Model, associations) {</span>
+<span class="cstat-no" title="statement not covered" >	Model.hasOne = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >		var assocName;</span>
+<span class="cstat-no" title="statement not covered" >		var assocTemplateName;</span>
+<span class="cstat-no" title="statement not covered" >		var association = {</span>
+			name           : Model.table,
+			model          : Model,
+			reversed       : false,
+			extension      : false,
+			autoFetch      : false,
+			autoFetchLimit : 2,
+			required       : false
+		};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		for (var i = 0; i &lt; arguments.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >			switch (typeof arguments[i]) {</span>
+				case "string":
+<span class="cstat-no" title="statement not covered" >					association.name = arguments[i];</span>
+<span class="cstat-no" title="statement not covered" >					break;</span>
+				case "function":
+<span class="cstat-no" title="statement not covered" >					if (arguments[i].table) {</span>
+<span class="cstat-no" title="statement not covered" >						association.model = arguments[i];</span>
+					}
+<span class="cstat-no" title="statement not covered" >					break;</span>
+				case "object":
+<span class="cstat-no" title="statement not covered" >					association = _.extend(association, arguments[i]);</span>
+<span class="cstat-no" title="statement not covered" >					break;</span>
+			}
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		assocName = ucfirst(association.name);</span>
+<span class="cstat-no" title="statement not covered" >		assocTemplateName = association.accessor || assocName;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (!association.hasOwnProperty("field")) {</span>
+<span class="cstat-no" title="statement not covered" >			association.field = util.formatField(association.model, association.name, association.required, association.reversed);</span>
+		} else <span class="cstat-no" title="statement not covered" >if(!association.extension) {</span>
+<span class="cstat-no" title="statement not covered" >			association.field = util.wrapFieldObject({</span>
+				field: association.field, model: Model, altName: Model.table,
+				mapsTo: association.mapsTo
+			});
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		util.convertPropToJoinKeyProp(association.field, {</span>
+			makeKey: false, required: association.required
+		});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		for (var k in Accessors) {</span>
+<span class="cstat-no" title="statement not covered" >			if (!association.hasOwnProperty(k + "Accessor")) {</span>
+<span class="cstat-no" title="statement not covered" >				association[k + "Accessor"] = Accessors[k] + assocTemplateName;</span>
+			}
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		associations.push(association);</span>
+<span class="cstat-no" title="statement not covered" >		for (k in association.field) {</span>
+<span class="cstat-no" title="statement not covered" >			if (!association.field.hasOwnProperty(k)) {</span>
+<span class="cstat-no" title="statement not covered" >				continue;</span>
+			}
+<span class="cstat-no" title="statement not covered" >			if (!association.reversed) {</span>
+<span class="cstat-no" title="statement not covered" >				Model.addProperty(</span>
+					_.extend({}, association.field[k], { klass: 'hasOne' }),
+					false
+				);
+			}
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (association.reverse) {</span>
+<span class="cstat-no" title="statement not covered" >			association.model.hasOne(association.reverse, Model, {</span>
+				reversed       : true,
+				accessor       : association.reverseAccessor,
+				reverseAccessor: undefined,
+				field          : association.field,
+				autoFetch      : association.autoFetch,
+				autoFetchLimit : association.autoFetchLimit
+			});
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		Model["findBy" + assocTemplateName] = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >			var cb = null, conditions = null, options = {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			for (var i = 0; i &lt; arguments.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >				switch (typeof arguments[i]) {</span>
+					case "function":
+<span class="cstat-no" title="statement not covered" >						cb = arguments[i];</span>
+<span class="cstat-no" title="statement not covered" >						break;</span>
+					case "object":
+<span class="cstat-no" title="statement not covered" >						if (conditions === null) {</span>
+<span class="cstat-no" title="statement not covered" >							conditions = arguments[i];</span>
+						} else {
+<span class="cstat-no" title="statement not covered" >							options = arguments[i];</span>
+						}
+<span class="cstat-no" title="statement not covered" >						break;</span>
+				}
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (conditions === null) {</span>
+<span class="cstat-no" title="statement not covered" >				throw new ORMError(".findBy(" + assocName + ") is missing a conditions object", 'PARAM_MISMATCH');</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			options.__merge = {</span>
+				from  : { table: association.model.table, field: (association.reversed ? Object.keys(association.field) : association.model.id) },
+				to    : { table: Model.table, field: (association.reversed ? association.model.id : Object.keys(association.field) ) },
+				where : [ association.model.table, conditions ],
+				table : Model.table
+			};
+<span class="cstat-no" title="statement not covered" >			options.extra = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (typeof cb === "function") {</span>
+<span class="cstat-no" title="statement not covered" >				return Model.find({}, options, cb);</span>
+			}
+<span class="cstat-no" title="statement not covered" >			return Model.find({}, options);</span>
+		};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		return this;</span>
+	};
+};
+&nbsp;
+exports.extend = <span class="fstat-no" title="function not covered" >function (Model, Instance, Driver, associations) {</span>
+<span class="cstat-no" title="statement not covered" >	for (var i = 0; i &lt; associations.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >		extendInstance(Model, Instance, Driver, associations[i]);</span>
+	}
+};
+&nbsp;
+exports.autoFetch = <span class="fstat-no" title="function not covered" >function (Instance, associations, opts, cb) {</span>
+<span class="cstat-no" title="statement not covered" >	if (associations.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >		return cb();</span>
+	}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var pending = associations.length;</span>
+<span class="cstat-no" title="statement not covered" >	var autoFetchDone = <span class="fstat-no" title="function not covered" >function autoFetchDone() {</span></span>
+<span class="cstat-no" title="statement not covered" >		pending -= 1;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (pending === 0) {</span>
+<span class="cstat-no" title="statement not covered" >			return cb();</span>
+		}
+	};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	for (var i = 0; i &lt; associations.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >		autoFetchInstance(Instance, associations[i], opts, autoFetchDone);</span>
+	}
+};
+&nbsp;
+<span class="fstat-no" title="function not covered" >function extendInstance(Model, Instance, Driver, association) {</span>
+<span class="cstat-no" title="statement not covered" >	Object.defineProperty(Instance, association.hasAccessor, {</span>
+		value: <span class="fstat-no" title="function not covered" >function (opts, cb) {</span>
+<span class="cstat-no" title="statement not covered" >			if (typeof opts === "function") {</span>
+<span class="cstat-no" title="statement not covered" >				cb = opts;</span>
+<span class="cstat-no" title="statement not covered" >				opts = {};</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (util.hasValues(Instance, Object.keys(association.field))) {</span>
+<span class="cstat-no" title="statement not covered" >				association.model.get(util.values(Instance, Object.keys(association.field)), opts, <span class="fstat-no" title="function not covered" >function (err, instance) {</span></span>
+<span class="cstat-no" title="statement not covered" >					return cb(err, instance ? true : false);</span>
+				});
+			} else {
+<span class="cstat-no" title="statement not covered" >				cb(null, false);</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return this;</span>
+		},
+		enumerable: false,
+		writable: true
+	});
+<span class="cstat-no" title="statement not covered" >	Object.defineProperty(Instance, association.getAccessor, {</span>
+		value: <span class="fstat-no" title="function not covered" >function (opts, cb) {</span>
+<span class="cstat-no" title="statement not covered" >			if (typeof opts === "function") {</span>
+<span class="cstat-no" title="statement not covered" >				cb = opts;</span>
+<span class="cstat-no" title="statement not covered" >				opts = {};</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			var saveAndReturn = <span class="fstat-no" title="function not covered" >function (err, Assoc) {</span></span>
+<span class="cstat-no" title="statement not covered" >				if (!err) {</span>
+<span class="cstat-no" title="statement not covered" >					Instance[association.name] = Assoc;</span>
+				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				return cb(err, Assoc);</span>
+			};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			if (association.reversed) {</span>
+<span class="cstat-no" title="statement not covered" >				if (util.hasValues(Instance, Model.id)) {</span>
+<span class="cstat-no" title="statement not covered" >					if (typeof cb !== "function") {</span>
+<span class="cstat-no" title="statement not covered" >						return association.model.find(util.getConditions(Model, Object.keys(association.field), Instance), opts);</span>
+					}
+<span class="cstat-no" title="statement not covered" >					association.model.find(util.getConditions(Model, Object.keys(association.field), Instance), opts, saveAndReturn);</span>
+				} else {
+<span class="cstat-no" title="statement not covered" >					cb(null);</span>
+				}
+			} else {
+<span class="cstat-no" title="statement not covered" >				if (Instance.isShell()) {</span>
+<span class="cstat-no" title="statement not covered" >					Model.get(util.values(Instance, Model.id), <span class="fstat-no" title="function not covered" >function (err, instance) {</span></span>
+<span class="cstat-no" title="statement not covered" >						if (err || !util.hasValues(instance, Object.keys(association.field))) {</span>
+<span class="cstat-no" title="statement not covered" >							return cb(null);</span>
+						}
+<span class="cstat-no" title="statement not covered" >						association.model.get(util.values(instance, Object.keys(association.field)), opts, saveAndReturn);</span>
+					});
+				} else <span class="cstat-no" title="statement not covered" >if (util.hasValues(Instance, Object.keys(association.field))) {</span>
+<span class="cstat-no" title="statement not covered" >					association.model.get(util.values(Instance, Object.keys(association.field)), opts, saveAndReturn);</span>
+				} else {
+<span class="cstat-no" title="statement not covered" >					cb(null);</span>
+				}
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return this;</span>
+		},
+		enumerable: false,
+		writable: true
+	});
+<span class="cstat-no" title="statement not covered" >	Object.defineProperty(Instance, association.setAccessor, {</span>
+		value: <span class="fstat-no" title="function not covered" >function (OtherInstance, cb) {</span>
+<span class="cstat-no" title="statement not covered" >			if (association.reversed) {</span>
+<span class="cstat-no" title="statement not covered" >				Instance.save(<span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >					if (err) {</span>
+<span class="cstat-no" title="statement not covered" >						return cb(err);</span>
+					}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					if (!Array.isArray(OtherInstance)) {</span>
+<span class="cstat-no" title="statement not covered" >						util.populateConditions(Model, Object.keys(association.field), Instance, OtherInstance, true);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						return OtherInstance.save({}, { saveAssociations: false }, cb);</span>
+					}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					var associations = _.clone(OtherInstance);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					var saveNext = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >						if (!associations.length) {</span>
+<span class="cstat-no" title="statement not covered" >							return cb();</span>
+						}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						var other = associations.pop();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						util.populateConditions(Model, Object.keys(association.field), Instance, other, true);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >						other.save({}, { saveAssociations: false }, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >							if (err) {</span>
+<span class="cstat-no" title="statement not covered" >								return cb(err);</span>
+							}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >							saveNext();</span>
+						});
+					};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					return saveNext();</span>
+				});
+			} else {
+<span class="cstat-no" title="statement not covered" >				OtherInstance.save({}, { saveAssociations: false }, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >					if (err) {</span>
+<span class="cstat-no" title="statement not covered" >						return cb(err);</span>
+					}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					Instance[association.name] = OtherInstance;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					util.populateConditions(association.model, Object.keys(association.field), OtherInstance, Instance);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					return Instance.save({}, { saveAssociations: false }, cb);</span>
+				});
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return this;</span>
+		},
+		enumerable: false,
+		writable: true
+	});
+<span class="cstat-no" title="statement not covered" >	if (!association.reversed) {</span>
+<span class="cstat-no" title="statement not covered" >		Object.defineProperty(Instance, association.delAccessor, {</span>
+			value: <span class="fstat-no" title="function not covered" >function (cb) {</span>
+<span class="cstat-no" title="statement not covered" >				for (var k in association.field) {</span>
+<span class="cstat-no" title="statement not covered" >					if (association.field.hasOwnProperty(k)) {</span>
+<span class="cstat-no" title="statement not covered" >						Instance[k] = null;</span>
+					}
+				}
+<span class="cstat-no" title="statement not covered" >				Instance.save({}, { saveAssociations: false }, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >					if (!err) {</span>
+<span class="cstat-no" title="statement not covered" >						delete Instance[association.name];</span>
+					}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >					return cb();</span>
+				});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				return this;</span>
+			},
+			enumerable: false,
+			writable: true
+		});
+	}
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function autoFetchInstance(Instance, association, opts, cb) {</span>
+<span class="cstat-no" title="statement not covered" >	if (!Instance.saved()) {</span>
+<span class="cstat-no" title="statement not covered" >		return cb();</span>
+	}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	if (!opts.hasOwnProperty("autoFetchLimit") || typeof opts.autoFetchLimit === "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >		opts.autoFetchLimit = association.autoFetchLimit;</span>
+	}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	if (opts.autoFetchLimit === 0 || (!opts.autoFetch &amp;&amp; !association.autoFetch)) {</span>
+<span class="cstat-no" title="statement not covered" >		return cb();</span>
+	}
+&nbsp;
+	// When we have a new non persisted instance for which the association field (eg owner_id)
+	// is set, we don't want to auto fetch anything, since `new Model(owner_id: 12)` takes no
+	// callback, and hence this lookup would complete at an arbitrary point in the future.
+	// The associated entity should probably be fetched when the instance is persisted.
+<span class="cstat-no" title="statement not covered" >	if (Instance.isPersisted()) {</span>
+<span class="cstat-no" title="statement not covered" >		Instance[association.getAccessor]({ autoFetchLimit: opts.autoFetchLimit - 1 }, cb);</span>
+	} else {
+<span class="cstat-no" title="statement not covered" >		return cb();</span>
+	}
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function ucfirst(text) {</span>
+<span class="cstat-no" title="statement not covered" >	return text[0].toUpperCase() + text.substr(1);</span>
+}
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 16:09:29 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>
