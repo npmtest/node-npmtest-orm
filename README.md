@@ -1,7 +1,7 @@
 # test coverage for  [orm (v3.2.3)](http://dresende.github.io/node-orm2)  [![npm package](https://img.shields.io/npm/v/npmtest-orm.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-orm) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-orm.svg)](https://travis-ci.org/npmtest/node-npmtest-orm)
 #### NodeJS Object-relational mapping
 
-[![NPM](https://nodei.co/npm/orm.png?downloads=true)](https://www.npmjs.com/package/orm)
+[![NPM](https://nodei.co/npm/orm.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/orm)
 
 | git-branch : | [alpha](https://github.com/npmtest/node-npmtest-orm/tree/alpha)|
 |--:|:--|
@@ -9,11 +9,17 @@
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-orm/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-orm/build/test-report.html)|
 | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-orm/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-orm/tree/gh-pages/build)|
 
-[![istanbul-coverage](https://npmtest.github.io/node-npmtest-orm/build/screenCapture.buildCustomOrg.browser.coverage.html.png)](https://npmtest.github.io/node-npmtest-orm/build/coverage.html/index.html)
+- [https://npmtest.github.io/node-npmtest-orm/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-orm/build/coverage.html/index.html)
 
-[![test-report](https://npmtest.github.io/node-npmtest-orm/build/screenCapture.buildCustomOrg.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmtest%252Fnode-npmtest-orm%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-orm/build/test-report.html)
+[![istanbul-coverage](https://npmtest.github.io/node-npmtest-orm/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://npmtest.github.io/node-npmtest-orm/build/coverage.html/index.html)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-orm/build/screenCapture.buildApidoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-orm%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-orm/build/apidoc.html)
+- [https://npmtest.github.io/node-npmtest-orm/build/test-report.html](https://npmtest.github.io/node-npmtest-orm/build/test-report.html)
+
+[![test-report](https://npmtest.github.io/node-npmtest-orm/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-orm/build/test-report.html)
+
+- [https://npmdoc.github.io/node-npmdoc-orm/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-orm/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-orm/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-orm/build/apidoc.html)
 
 ![npmPackageListing](https://npmtest.github.io/node-npmtest-orm/build/screenCapture.npmPackageListing.svg)
 
@@ -28,46 +34,38 @@
 {
     "analyse": false,
     "author": {
-        "name": "Diogo Resende",
-        "email": "dresende@thinkdigital.pt"
+        "name": "Diogo Resende"
     },
     "bugs": {
         "url": "https://github.com/dresende/node-orm2/issues"
     },
     "contributors": [
         {
-            "name": "Bramus Van Damme",
-            "email": "bramus@bram.us"
+            "name": "Bramus Van Damme"
         },
         {
-            "name": "Lorien Gamaroff",
-            "email": "lorien@gamaroff.org"
+            "name": "Lorien Gamaroff"
         },
         {
             "name": "preslavrachev"
         },
         {
-            "name": "Chris Cowan",
-            "email": "me@chriscowan.us"
+            "name": "Chris Cowan"
         },
         {
-            "name": "Paul Dixon",
-            "email": "paul.dixon@mintbridge.co.uk"
+            "name": "Paul Dixon"
         },
         {
             "name": "David Kosub"
         },
         {
-            "name": "Arek W",
-            "email": "arek01@gmail.com"
+            "name": "Arek W"
         },
         {
-            "name": "Joseph Gilley",
-            "email": "joe.gilley@gmail.com"
+            "name": "Joseph Gilley"
         },
         {
-            "name": "Benjamin Pannell",
-            "email": "admin@sierrasoftworks.com"
+            "name": "Benjamin Pannell"
         }
     ],
     "dependencies": {
@@ -113,17 +111,14 @@
     "main": "./lib/ORM",
     "maintainers": [
         {
-            "name": "dresende",
-            "email": "dresende@thinkdigital.pt"
+            "name": "dresende"
         },
         {
-            "name": "dxg",
-            "email": "arek01@gmail.com"
+            "name": "dxg"
         }
     ],
     "name": "orm",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/dresende/node-orm2.git"
