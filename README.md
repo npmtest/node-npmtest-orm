@@ -1,4 +1,7 @@
-# test coverage for  [orm (v3.2.3)](http://dresende.github.io/node-orm2)  [![npm package](https://img.shields.io/npm/v/npmtest-orm.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-orm) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-orm.svg)](https://travis-ci.org/npmtest/node-npmtest-orm)
+# npmtest-orm
+
+#### basic test coverage for  [orm (v3.2.3)](http://dresende.github.io/node-orm2)  [![npm package](https://img.shields.io/npm/v/npmtest-orm.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-orm) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-orm.svg)](https://travis-ci.org/npmtest/node-npmtest-orm)
+
 #### NodeJS Object-relational mapping
 
 [![NPM](https://nodei.co/npm/orm.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/orm)
@@ -7,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-orm/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-orm/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-orm/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-orm/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-orm/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-orm/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-orm/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-orm/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-orm/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-orm/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-orm/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-orm/build/coverage.html/index.html)
 
@@ -126,7 +129,8 @@
     "scripts": {
         "test": "make test"
     },
-    "version": "3.2.3"
+    "version": "3.2.3",
+    "bin": {}
 }
 ```
 

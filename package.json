@@ -1,6 +1,6 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "test coverage for [orm (v3.2.3)](http://dresende.github.io/node-orm2) [![npm package](https://img.shields.io/npm/v/npmtest-orm.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-orm) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-orm.svg)](https://travis-ci.org/npmtest/node-npmtest-orm)",
+    "description": "#### basic test coverage for  [orm (v3.2.3)](http://dresende.github.io/node-orm2)  [![npm package](https://img.shields.io/npm/v/npmtest-orm.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-orm) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-orm.svg)](https://travis-ci.org/npmtest/node-npmtest-orm)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "orm": "*",
